@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Portafolio ML</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <!-- Note: The "styleN" class below should match that of the banner element. -->
+        <header id="header" class="alt style2">
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- One -->
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h2>Ingresos de Adultos (Bagging)</h2>
+                        <p>Herramienda RapidMiner</p>
+                    </header>
+
+                    <h4>Problema</h4>
+                    <p>
+                        Predecir si el ingreso excede $ 50K / año basado en los datos del censo.
+                    </p>
+
+                    <h4>Dataset</h4>
+                    <a target="_blank" href="https://archive.ics.uci.edu/ml/datasets/Adult">Fuente uci (Adult)</a>
+                    <h4>Atributos</h4>
+                    <p>
+                        Edad
+                        <br>
+                        Clase de trabajo
+                        <br>
+                        fnlwgt
+                        <br>
+                        Educación
+                        <br>
+                        Educación-num
+                        <br>
+                        Estado civil
+                        <br>
+                        Ocupación
+                        <br>
+                        Relación
+                        <br>
+                        Raza
+                        <br>
+                        Sexo
+                        <br>
+                        Ganancia de capital
+                        <br>
+                        Pérdida de capital
+                        <br>
+                        Horas por semana
+                        <br>
+                        País de origen
+                    </p>
+                    <h4>Preparación de los datos:</h4>
+                    <p>
+                        A la hora de la preparación de los datos se realizaran una inspecion de los datos y la
+                        informacion adjunta que nos aportan de ellos.
+                        <br>
+                        De dicho analisis determinamos que los atributos Educación y Educación-num estan relacionados,
+                        por lo tanto eliminaremos Educación.
+                        Realizamos el mismo proceso para Relación y Estado civil, y eliminamos Relación.
+                    </p>
+                    <h4>Modelado en RapidMiner:</h4>
+                    <p>Como primer paso del modelado insertamos en dataset.</p>
+                    <img src="/assets/images/bagging/1.png" alt="" style="max-width: 100%;">
+                    <p>En un segundo paso seleccionamos solamente los datos a utilizar que determinamos en la
+                        preparación de los datos.</p>
+                    <img src="/assets/images/bagging/2.png" alt="" style="max-width: 100%;">
+                    <p>
+                        Posterior utilizamos el modulo de Split Data para separar el conjunto en un set de entrenamiento
+                        y uno de test.
+                    </p>
+                    <img src="/assets/images/bagging/3.png" alt="" style="max-width: 100%;">
+                    <p>
+                        Aplicamos el modulo de Bagging seguido de un Apply Model y un Performance.
+                        <br>
+                        En el modulo de Bagging configuramos 30 iteraciones.
+                    </p>
+                    <img src="/assets/images/bagging/4.png" alt="" style="max-width: 100%;">
+                    <p>
+                        Por ultimo configuramos un modulo de Decision Tree dentro del Bagging.
+                        Con profunidad maxima de 15.
+                    </p>
+                    <img src="/assets/images/bagging/5.png" alt="" style="max-width: 100%;">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h4>Resultados:</h4>
+                    <p>
+                        El resultado de nuestro modelo tiene un accurancy de un 85.30% lo cual es una buena performance.
+                        <br>
+                        Si analizamos los datos obtenidos en la tecnica de Vote podemos llegar a conculuir que estamos
+                        sobre entrenado nuestro modelo.
+                    </p>
+                    <a href="vote.html"> Ver Vote</a>
+                    <br>
+                    <br>
+                    <img src="/assets/images/bagging/6.png" alt="" style="max-width: 100%;">
+                </div>
+            </section>
+
+
+            <!-- Footer -->
+            <footer id="footer">
+                <div class="inner">
+                    <ul class="copyright">
+                        <li>&copy; Untitled</li>
+                        <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+</body>
+
+</html>

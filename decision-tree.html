@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Portafolio ML</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css"/></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <!-- Note: The "styleN" class below should match that of the banner element. -->
+      <header id="header" class="alt style2">
+        <nav>
+          <a href="#menu">Menu</a>
+        </nav>
+      </header>
+
+      <!-- Menu -->
+      <nav id="menu">
+        <ul class="links">
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- One -->
+        <section id="one">
+          <div class="inner">
+            <header class="major">
+              <h2>Evaluación del automóvil</h2>
+              <p>Herramienda RapidMiner</p>
+            </header>
+
+            <h4>Problema</h4>
+            <p>
+                Tener la capacidad de decisión para determinar que tan bueno es un auto a partir de sus caracteristicas basicas. 
+            </p>
+
+            <h4>Dataset</h4>
+            <a target="_blank" href="https://archive.ics.uci.edu/ml/datasets/Car+Evaluation">Fuente uci (Cars)</a>
+            <p>
+
+                El dataset contiene con 1728 registos con diferentes caracteristicas de un auto y una variable Label que define que tan bueno es el conjunto de caracteristicas:
+                <br>
+                - Inaceptable (unacc) <br>
+                - Aceptable (acc) <br>
+                - Bueno (good) <br>
+                - Muy Bueno (v.good) <br>
+
+            </p>
+            <h4>Atributos</h4>
+            <p>
+                    Comprado, valores adoptados:      v-high, high, med, low
+                    <br>
+                    Mantenimiento, valores adoptados:      v-high, high, med, low
+                    <br>
+                    Puertas, valores adoptados:       2, 3, 4, 5-more
+                    <br>
+                    Personas, valores adoptados:    2, 4, more
+                    <br>
+                    Tamaño, valores adoptados:   small, med, big
+                    <br>
+                    Seguridad, valores adoptados:     low, med, high
+                    <br>
+            </p>
+            <h4>Preparación de los datos:</h4>
+            <p>
+                A la hora de la preparación de los datos se realizaran cambios en los atributos Puertas y Personas.
+                <br>
+                Dichos cambios se aplican debido a se tratan de cantidades y para poder tratarlas como tales (números enteros), debemos transformar los valores 
+                <br>
+                no enteros "5-more" y "more" a valores enteros, remplazandolos por "5".
+
+                Dicha preparacion se realiza antes de ser importado a la herramienta RapidMiner.
+            </p>
+            <h4>Modelado en RapidMiner:</h4>
+            <p>Como primer paso del modelado insertamos en dataset, y utilizamos un modulo de cross validation para determinar la performance de nuestro modelo.</p>
+            <img src="/assets/images/d-tree/1.png" alt="" style="width: 100%;">
+            <p>
+                Posterior utilizamos el modulo de Decision Tree con un criterio de "gain ratio" y una profunidad maxima de 15 para la zona de entrenamiento.
+                <br>
+                En la zona de testing utilizamos los modulos de Applay Model y Performance.
+            </p>
+            <img src="/assets/images/d-tree/2.png" alt="" style="width: 100%;">
+            <br>
+            <br>
+            <br>
+            <br>
+            <h4>Resultados:</h4>
+            <p>
+                El resultado de nuestro modelo tiene un accurancy de un 94% lo cual es muy bueno para 
+                <br>
+                clasificar futuras entradas.
+            </p>
+            <img src="/assets/images/d-tree/3.png" alt="" style="width: 100%;">
+            <br>
+            <br>
+            <br>
+            <p>Ejemplo de una seccion del Arbol de decision resultante.</p>
+            <img src="/assets/images/d-tree/4.png" alt="" style="width: 100%;">
+          </div>
+        </section>
+
+        
+      
+
+      <!-- Footer -->
+      <footer id="footer">
+        <div class="inner">
+          <ul class="copyright">
+            <li>&copy; Untitled</li>
+            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

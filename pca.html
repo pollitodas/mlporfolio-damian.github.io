@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Portafolio ML</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <!-- Note: The "styleN" class below should match that of the banner element. -->
+        <header id="header" class="alt style2">
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- One -->
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h2>Cereales</h2>
+                        <p>Herramienda RapidMiner</p>
+                    </header>
+
+                    <h4>Problema</h4>
+                    <p>
+                        Determinar cuales son los cereales para un buen desayuno.
+                    </p>
+                    <h4>Objetivo</h4>
+                    <p>
+                        Reducir el conjunto de 13 predictores a una lista mucho menor, utilizando PCA.
+                    </p>
+
+                    <h4>Dataset</h4>
+                    <a target="_blank" href="https://www.kaggle.com/crawford/80-cereals/version/1#cereal.csv">Fuente
+                        Kaggle (Cereals)</a>
+                    <p>
+                        El dataset contiene con 77 registos sobre ratings e información nutricional de cereales para el
+                        desayuno:
+                    </p>
+                    <h4>Atributos</h4>
+                    <p>
+                        Nombre: Nombre del cereal.
+                        <br>
+                        Fabricante: cereal
+                        <br>
+                        A = productos alimenticios caseros estadounidenses;
+                        <br>
+                        G = molinos generales
+                        <br>
+                        K = Kelloggs
+                        <br>
+                        N = Nabisco
+                        <br>
+                        P = Publicar
+                        <br>
+                        Q = avena cuáquera
+                        <br>
+                        R = Ralston Purina
+                        <br>
+                        tipo: frio, caliente
+                        <br>
+                        calorías: calorías por porción
+                        <br>
+                        proteína: gramos de proteína
+                        <br>
+                        grasa: gramos de grasa
+                        <br>
+                        sodio: miligramos de sodio
+                        <br>
+                        fibra: gramos de fibra dietética
+                        <br>
+                        carbo: gramos de carbohidratos complejos
+                        <br>
+                        azúcares: gramos de azúcares
+                        <br>
+                        potass: miligramos de potasio
+                        <br>
+                        vitaminas: vitaminas y minerales: 0, 25 o 100, lo que indica el porcentaje
+                        típico de recomendaciones de la FDA
+                        <br>
+                        estante: estante de exhibición (1, 2 o 3, contando desde el piso)
+                        <br>
+                        peso: peso en onzas de una porción
+                        <br>
+                        tazas: cantidad de tazas en una porción
+                        <br>
+                        calificación: una calificación de los cereales
+                        <br>
+                    </p>
+                    <h4>Preparación de los datos:</h4>
+                    <p>
+                        Remover los atributos no numericos del dataset.
+                        <br>
+                        (Nombre,Fabricante,Tipo)
+
+                    </p>
+                    <h4>Modelado en RapidMiner:</h4>
+                    <p>Como primer paso del modelado insertamos en dataset.</p>
+                    <img src="/assets/images/pca/1.png" alt="" style="max-width: 100%;">
+                    <p>A travez del modulo "Select Attributes" eliminamos del modelo los datos no nomericos</p>
+                    <img src="/assets/images/pca/2.png" alt="" style="max-width: 100%;">
+                    <p>
+                        Posterior utilizamos el modulo de Normalize debido a que PCA es muy sensible a la escala de los
+                        datos.
+                        <br>
+                    </p>
+                    <img src="/assets/images/pca/3.png" alt="" style="max-width: 100%;">
+                    <p>
+                        Aplicamos el modulo de PCA con los parametros de reducción de dimensionalidad "keep variance" y
+                        umbral de varianza en 0.95
+                    </p>
+                    <img src="/assets/images/pca/4.png" alt="" style="max-width: 100%;">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h4>Resultados:</h4>
+                    <p>
+                        Analizdo los resultados podemos que los componentes principales PC1, PC2, PC3 son los que nos
+                        dan mayor ganacia de informacion
+                        <br>
+                        Dichos componentes los atriburos que más información nos brindan son:
+                        <br>
+                        - rating
+                        - fiber
+                        - potass
+                        - protein
+                        - shelf
+                        - calories
+                    </p>
+                    <p>Eigenvalues</p>
+                    <img src="/assets/images/pca/5.png" alt="" style="max-width: 100%;">
+                    <p>Eigenvectors</p>
+                    <img src="/assets/images/pca/6.png" alt="" style="max-width: 100%;">
+                    <p>Cumulative Variance Plot</p>
+                    <img src="/assets/images/pca/7.png" alt="" style="max-width: 100%;">
+                </div>
+            </section>
+
+
+
+
+            <!-- Footer -->
+            <footer id="footer">
+                <div class="inner">
+                    <ul class="copyright">
+                        <li>&copy; Untitled</li>
+                        <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+</body>
+
+</html>
